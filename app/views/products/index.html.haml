@@ -1,4 +1,32 @@
-%h1 Products#index
-%p Find me in app/views/products/index.html.haml
-
-= button_to 'Add to cart', add_to_cart_product_path(@products)
+.oferta
+  = image_tag('p1.png', width: 165, height: 113, class: 'oferta_img')
+  .oferta_details
+    .oferta_title Power Tools BST18XN Cordless
+    .oferta_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+    = link_to 'Details', '#', class: 'prod_buy'
+.center_title_bar Latest Products
+.prod_box
+  .center_prod_box
+    .product_title
+      = link_to 'Makita 156 MX-VL', '#'
+    .product_img
+      = link_to image_tag('p1.jpg'), '#'
+    .prod_price
+      %span.reduce 350
+      %span.price 270
+  .prod_details_tab
+    = link_to 'Add to cart', add_to_cart_product_path(@products), method: :post, class: 'prod_buy'
+    = link_to 'Details', '#', class: 'prod_details'
+.center_title_bar Recomended Products
+.prod_box
+  .center_prod_box
+    .product_title
+      = link_to 'Makita 156 MX-VL', '#'
+    .product_img
+      = link_to image_tag('p1.jpg'), '#'
+    .prod_price
+      %span.reduce 350
+      %span.price 270
+  .prod_details_tab
+    = link_to 'Add to cart', add_to_cart_product_path(@products), method: :post, class: 'prod_buy'
+    = link_to 'Details', '#', class: 'prod_details'
