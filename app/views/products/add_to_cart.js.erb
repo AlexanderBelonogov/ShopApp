@@ -1,0 +1,9 @@
+var details = <%= fetch_cart_details %>;
+var cart_el = $('.shopping_cart');
+var item = 'Item';
+if (details[0] != 1) { item += 's'; }
+cart_el.find('span.count').text(details[0] + ' ' + item + ' in the cart');
+cart_el.find('span.price').text(details[1] + ',00 $');
+<% if params[:action] == "remove_from_cart" %>
+  $('.product_id_'+ <%= params[:id] %>).remove();
+<% end %>

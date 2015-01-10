@@ -2,10 +2,11 @@
   .shopping_cart
     .title_box Shopping cart
     .cart_details
-      3 items
+      - count, price = fetch_cart_details
+      %span.count #{pluralize(count, 'Item')} in the cart
       %br
       %span.border_cart
         Total:
-        %span.price 350
+        %span.price.cart_price #{number_to_currency(price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
     .cart_icon
-      = link_to image_tag('shoppingcart.png', width: 35, height: 35), '#'
+      = link_to image_tag('shoppingcart.png', width: 35, height: 35), show_cart_products_path

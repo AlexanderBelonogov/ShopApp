@@ -1,0 +1,23 @@
+.center_title_bar #{@product.name}
+.prod_box_big
+  .center_prod_box_big
+    .product_img_big
+      = image_tag('p3.jpg')
+    .details_big_box
+      .product_title_big #{@product.name}
+      .specifications
+        Warranties:
+        %span.blue
+          24 months
+        %br
+        Transport:
+        %span.blue
+          Delivery services company
+        %br
+        Description:
+        %span.blue
+          #{@product.description}
+        %br
+      .prod_price_big
+        %span.price #{number_to_currency(@product.price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+      = link_to 'Add to cart', add_to_cart_product_path(@product), method: :post, remote: true, class: 'prod_buy'

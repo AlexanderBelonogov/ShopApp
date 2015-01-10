@@ -1,0 +1,22 @@
+.center_title_bar Cart
+.prod_box_big
+  - unless @cart_items.blank?
+    - @cart_items.each do |item, amount|
+      .center_prod_box_big{class: "product_id_#{item['id']}"}
+        .remove
+          = link_to 'X', remove_from_cart_product_path(item['id']), method: :post, remote: true
+        .product_image
+          = image_tag('p1.jpg')
+        .product_title
+          = link_to item['name'], product_path(item['id'])
+          %br
+          %br
+          #{number_to_currency(item['price'], unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+        .total
+          .amount #{amount}
+          %br
+          Total:
+          %br
+          %span.price #{number_to_currency(item['price'] * amount, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+  - else
+    .center_prod_box_big Your cart is empty.
