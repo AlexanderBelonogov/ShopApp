@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'responders', '~> 2.0'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 gem 'activeadmin', git: 'git@github.com:activeadmin/activeadmin', branch: 'rails-4-2'
+gem 'devise'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
