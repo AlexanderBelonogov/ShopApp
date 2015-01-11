@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  before_action :get_category, :load_categories, :load_last_viewed
+  before_action :get_category, :load_categories, :get_cart_products
 
   def show
     @products = @category.products

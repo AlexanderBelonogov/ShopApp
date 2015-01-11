@@ -1,0 +1,19 @@
+.center_title_bar Create Order
+.prod_box_big
+  .center_prod_box_big
+    = form_for @order, html: {class: 'contact_form'} do |f|
+      = f.hidden_field :total, value: params[:parent_id]
+      - if @order.errors.any?
+        #error_explanation
+          #{pluralize(@order.errors.count, "error")} prohibited this post from being saved:
+          %ul
+          - @order.errors.full_messages.each do |message|
+            %li
+              = message
+      .form_row
+        = f.label :name, class: 'contact'
+        = f.text_field :name, class: 'contact_input'
+      .form_row
+        = f.label :email, class: 'contact'
+        = f.text_field :email, class: 'contact_input'
+      = f.button "Buy", class: "prod_details", style: 'margin-top: 10px;'

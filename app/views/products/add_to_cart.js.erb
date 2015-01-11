@@ -1,13 +1,36 @@
 var details = <%= fetch_cart_details %>;
 var count = details[0];
+var amount = details[1];
 var cart_el = $('.shopping_cart');
 var item = 'Item';
 if (details[0] != 1) { item += 's'; }
 cart_el.find('span.count').text(count + ' ' + item + ' in the cart');
-cart_el.find('span.price').text(details[1] + ',00 $');
+cart_el.find('span.price').text(amount + ',00 $');
+$('.all_total_text').text(amount + ',00 $');
 if (count != 0) {
   $('.clear_cart').show();
 }
-<% if params[:action] == "remove_from_cart" %>
+<% if params[:action] == "remove_from_cart" && !params[:count].present? %>
   $('.product_id_'+ <%= params[:id] %>).remove();
+<% end %>
+<% if params[:count].present? %>
+  var product_block = $('.product_id_'+ <%= params[:id] %>);
+  var amount_block = product_block.find('.amount');
+  var current_count = parseInt(amount_block.text());
+  var product_price = parseInt(product_block.find('div.item_price').text());
+  <% if params[:count] == 'increase' %>
+    current_count ++;
+  <% elsif params[:count] == 'decrease' %>
+    current_count --;
+  <% end %>
+  if (current_count == 0) {
+    product_block.remove();
+    if (amount == 0) {
+      $('.prod_box_big').html('<div class="center_prod_box_big">Your cart is empty.</div>');
+      $('.clear_cart').hide();
+    }
+  } else {
+    amount_block.text(current_count);
+    product_block.find('span.price').text(current_count * product_price + ',00 $');
+  }
 <% end %>

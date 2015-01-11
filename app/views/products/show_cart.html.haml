@@ -12,16 +12,18 @@
           = link_to item['name'], product_path(item['id'])
           %br
           %br
-          #{build_currency(item['price'])}
+          .item_price #{build_currency(item['price'])}
         .total
+          = link_to '+', add_to_cart_product_path(item['id'], count: 'increase'), method: :post, remote: true
           .amount #{amount}
+          = link_to '-', remove_from_cart_product_path(item['id'], count: 'decrease'), method: :post, remote: true
           %br
           Total:
           %br
           %span.price #{build_currency(item['price'] * amount)}
-    = link_to 'Buy Now', '#', class: 'prod_compare'
+    = link_to 'Buy Now', new_order_path, class: 'prod_compare'
     .all_total
       All Total: 
-      %span.product_title #{build_currency(fetch_cart_details.last)}
+      %span.product_title.all_total_text #{build_currency(fetch_cart_details.last)}
   - else
     .center_prod_box_big Your cart is empty.

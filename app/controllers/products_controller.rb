@@ -34,16 +34,22 @@ class ProductsController < ApplicationController
   end
 
   def remove_from_cart
-    @cart.delete_if{ |k| k['id'].to_s == params[:id]}
-    if @cart.empty?
+    cart = if params[:count].present?
+      decrease_items = @cart.select{ |i| i['id'].to_s == params[:id] }
+      real_items = decrease_items.take(decrease_items.size - 1)
+      @cart - decrease_items + real_items
+    else
+      @cart.delete_if{ |k| k['id'].to_s == params[:id] }
+    end
+    if cart.empty?
       clear_cart
     else
-      cookies[:cart] = { value: @cart.to_json, expires: 30.days.from_now }
+      cookies[:cart] = { value: cart.to_json, expires: 30.days.from_now }
     end
     render 'add_to_cart', remove: true, format: :js
   end
 
-  protected
+  private
 
   def find_product
     @product = Product.find(params[:id])
@@ -59,13 +65,5 @@ class ProductsController < ApplicationController
       product_id
     end
     cookies[:viewed] = { value: vieved_ids, expires: 1.year.from_now }
-  end
-
-  def get_cart_products
-    @cart = if cookies[:cart].present?
-      JSON.parse(cookies[:cart])
-    else
-      []
-    end
   end
 end

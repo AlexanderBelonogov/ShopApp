@@ -1,7 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.string :order
+      t.text :body, limit: nil
       t.integer :total
       t.string :name
       t.string :email

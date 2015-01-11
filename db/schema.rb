@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20150111155023) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.string   "order"
+    t.text     "body"
     t.integer  "total"
     t.string   "name"
     t.string   "email"

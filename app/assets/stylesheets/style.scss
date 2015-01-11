@@ -375,6 +375,9 @@ span.blue{
 color:#159DCC;
 }
 /*---------------contact_form------------------*/
+form input[type=text] {
+  padding: 0;
+}
 .contact_form{
 width:355px;
 float:left;
@@ -383,7 +386,7 @@ padding:0px 0 0 75px;
 .form_row{
 width:335px;
 clear:both;
-padding:10px 0 10px 0;
+padding:10px 0;
 color:#a53d17;
 }
 label.contact{
