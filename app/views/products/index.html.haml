@@ -14,7 +14,7 @@
     .product_img
       = link_to image_tag('p1.jpg'), '#'
     .prod_price
-      %span.price #{number_to_currency(270, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+      %span.price #{build_currency(270)}
   .prod_details_tab
     = link_to 'Add to cart', add_to_cart_product_path(@products.last), method: :post, remote: true, class: 'prod_buy'
     = link_to 'Details', @products.last, class: 'prod_details'

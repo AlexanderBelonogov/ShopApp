@@ -14,4 +14,4 @@
         .product_img
           =link_to image_tag('p1.jpg'), '#'
         .prod_price
-          %span.price #{number_to_currency(product.price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+          %span.price #{build_currency(product.price)}

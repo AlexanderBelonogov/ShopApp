@@ -455,21 +455,4 @@ text-align:center;
 color:#666666;
 padding:10px 0 0 60px;
 }
-/*--------------cart----------------*/
-.cart_table {
-  border-collapse: collapse;
-  width: 100%;
-  margin-top: 40px;
-  th, td { 
-    margin:0px;
-    border:1px #F0F4F5 solid;
-    text-align: center;
-    vertical-align: center;
-  }
-  .position { width: 8% }
-  .product { width: 30% }
-  .price { width: 12% }
-  .amount { width: 18% }
-  .total { width: 12% }
-}
-
+.all_total{float: right;}

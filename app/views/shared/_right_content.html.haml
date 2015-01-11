@@ -2,12 +2,12 @@
   .shopping_cart
     .title_box Shopping cart
     .cart_details
-      - count, price = fetch_cart_details
+      - count, total = fetch_cart_details
       %span.count #{pluralize(count, 'Item')} in the cart
       %br
       %span.border_cart
         Total:
-        %span.price.cart_price #{number_to_currency(price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+        %span.price.cart_price #{build_currency(total)}
     .cart_icon
       = link_to image_tag('shoppingcart.png', width: 35, height: 35), show_cart_products_path
     = link_to 'Clear Cart', clear_cart_products_path, method: :post, remote: true, class: 'clear_cart', style: count == 0 ? 'display:none;' : ''

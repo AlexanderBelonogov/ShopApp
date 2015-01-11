@@ -19,5 +19,5 @@
           #{@product.description}
         %br
       .prod_price_big
-        %span.price #{number_to_currency(@product.price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+        %span.price #{build_currency(@product.price)}
       = link_to 'Add to cart', add_to_cart_product_path(@product), method: :post, remote: true, class: 'prod_buy'

@@ -1,6 +1,7 @@
 .center_title_bar Cart
 .prod_box_big
   - unless @cart_items.blank?
+    = link_to 'Clear Cart', clear_cart_products_path, method: :post, remote: true
     - @cart_items.each do |item, amount|
       .center_prod_box_big{class: "product_id_#{item['id']}"}
         .remove
@@ -11,13 +12,16 @@
           = link_to item['name'], product_path(item['id'])
           %br
           %br
-          #{number_to_currency(item['price'], unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+          #{build_currency(item['price'])}
         .total
           .amount #{amount}
           %br
           Total:
           %br
-          %span.price #{number_to_currency(item['price'] * amount, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
-    = link_to 'Clear Cart', clear_cart_products_path, method: :post, remote: true
+          %span.price #{build_currency(item['price'] * amount)}
+    = link_to 'Buy Now', '#', class: 'prod_compare'
+    .all_total
+      All Total: 
+      %span.product_title #{build_currency(fetch_cart_details.last)}
   - else
     .center_prod_box_big Your cart is empty.
