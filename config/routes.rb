@@ -10,6 +10,13 @@ Rails.application.routes.draw do
     end
     collection do
       get :show_cart
+      get :show_all
+      post :clear_cart
+    end
+  end
+  resources :categories, only: :show do
+    member do
+      post :change_position
     end
   end
 

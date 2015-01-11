@@ -5,17 +5,7 @@
     .oferta_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
     = link_to 'Details', @products.first, class: 'prod_buy'
 .center_title_bar Latest Products
-.prod_box
-  .center_prod_box
-    .product_title
-      = link_to 'Makita 156 MX-VL', '#'
-    .product_img
-      = link_to image_tag('p1.jpg'), '#'
-    .prod_price
-      %span.price #{number_to_currency(270, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
-  .prod_details_tab
-    = link_to 'Add to cart', add_to_cart_product_path(@products.first), method: :post, remote: true, class: 'prod_buy'
-    = link_to 'Details', @products.first, class: 'prod_details'
+= render @products
 .center_title_bar Recomended Products
 .prod_box
   .center_prod_box

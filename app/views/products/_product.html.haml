@@ -1,0 +1,11 @@
+.prod_box
+  .center_prod_box
+    .product_title
+      = link_to product.name, product
+    .product_img
+      = link_to image_tag('p1.jpg'), product
+    .prod_price
+      %span.price #{number_to_currency(product.price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+  .prod_details_tab
+    = link_to 'Add to cart', add_to_cart_product_path(product), method: :post, remote: true, class: 'prod_buy'
+    = link_to 'Details', product, class: 'prod_details'

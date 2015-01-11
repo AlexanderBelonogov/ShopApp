@@ -10,3 +10,4 @@
         %span.price.cart_price #{number_to_currency(price, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
     .cart_icon
       = link_to image_tag('shoppingcart.png', width: 35, height: 35), show_cart_products_path
+    = link_to 'Clear Cart', clear_cart_products_path, method: :post, remote: true, class: 'clear_cart', style: count == 0 ? 'display:none;' : ''

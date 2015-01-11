@@ -4,10 +4,7 @@
       = link_to 'Home', root_path, class: 'nav'
     %li.divider
     %li
-      = link_to 'Products', '#', class: 'nav'
-    %li.divider
-    %li
-      = link_to 'Categories', '#', class: 'nav'
+      = link_to 'Show All Products', show_all_products_path, class: 'nav', remote: true
     %li.divider
     %li
       = link_to 'Cart', show_cart_products_path, class: 'nav'
