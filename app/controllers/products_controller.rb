@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
 
   def index
     @rand_product = Product.order("RANDOM()").first
-    @products = Product.page(params[:page])
+    @products = Product.order(created_at: :desc).page(params[:page])
   end
 
   def show
