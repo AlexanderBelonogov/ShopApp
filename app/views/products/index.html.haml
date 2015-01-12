@@ -5,6 +5,7 @@
     .oferta_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
     = link_to 'Details', @products.first, class: 'prod_buy'
 .center_title_bar Latest Products
+= paginate @products
 = render @products
 .center_title_bar Recomended Products
 .prod_box

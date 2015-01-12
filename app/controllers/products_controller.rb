@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   before_action :load_categories, :load_last_viewed
 
   def index
-    @products = Product.all
+    @products = Product.page(params[:page])
   end
 
   def show
