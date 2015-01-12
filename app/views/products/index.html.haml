@@ -1,21 +1,24 @@
-.oferta
-  = image_tag('p1.png', width: 165, height: 113, class: 'oferta_img')
-  .oferta_details
-    .oferta_title Power Tools BST18XN Cordless
-    .oferta_text Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-    = link_to 'Details', @products.first, class: 'prod_buy'
-.center_title_bar Latest Products
-= paginate @products
-= render @products
-.center_title_bar Recomended Products
-.prod_box
-  .center_prod_box
-    .product_title
-      = link_to 'Makita 156 MX-VL', '#'
-    .product_img
-      = link_to image_tag('p1.jpg'), '#'
-    .prod_price
-      %span.price #{build_currency(270)}
-  .prod_details_tab
-    = link_to 'Add to cart', add_to_cart_product_path(@products.last), method: :post, remote: true, class: 'prod_buy'
-    = link_to 'Details', @products.last, class: 'prod_details'
+- if @rand_product.present?
+  .oferta
+    = image_tag(@rand_product.image.present? ? @rand_product.image_url : 'image_not_available_big.gif', width: 135, height: 135, class: 'oferta_img')
+    .oferta_details
+      .oferta_title #{@rand_product.name}
+      .oferta_text #{@rand_product.description}
+      = link_to 'Details', @rand_product, class: 'prod_buy'
+  .center_title_bar Latest Products
+  = paginate @products
+  = render @products
+  .center_title_bar Recomended Products
+  .prod_box
+    .center_prod_box
+      .product_title
+        = link_to 'Makita 156 MX-VL', '#'
+      .product_img
+        = link_to image_tag('p1.jpg'), '#'
+      .prod_price
+        %span.price #{build_currency(270)}
+    .prod_details_tab
+      = link_to 'Add to cart', add_to_cart_product_path(@products.last), method: :post, remote: true, class: 'prod_buy'
+      = link_to 'Details', @products.last, class: 'prod_details'
+- else
+  .center_title_bar No products

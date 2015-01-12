@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   before_action :load_categories, :load_last_viewed
 
   def index
+    @rand_product = Product.order("RANDOM()").first
     @products = Product.page(params[:page])
   end
 
