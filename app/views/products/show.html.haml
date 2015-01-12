@@ -2,7 +2,7 @@
 .prod_box_big
   .center_prod_box_big
     .product_img_big
-      = image_tag('p3.jpg')
+      = image_tag(@product.image.present? ? @product.image_url : 'image_not_available_big.gif', width: 175, height: 175)
     .details_big_box
       .product_title_big #{@product.name}
       .specifications

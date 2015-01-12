@@ -12,6 +12,16 @@ class ProductsController < ApplicationController
   def show
   end
 
+  def create
+    @product = Product.new(product_params)
+    @product.categories << Category.find(params[:product][:category_ids])
+    if @product.save
+      redirect_to @product
+    else
+      render :new
+    end
+  end
+
   def show_all
     @products = Product.page(params[:page])
     respond_to { |format| format.js }
@@ -50,6 +60,10 @@ class ProductsController < ApplicationController
   end
 
   private
+
+  def product_params
+    params.require(:product).permit(:name, :description, :image, :price)
+  end
 
   def find_product
     @product = Product.find(params[:id])

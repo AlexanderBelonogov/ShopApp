@@ -18,6 +18,7 @@ gem 'quiet_assets'
 gem 'bootstrap-sass', '~> 3.3.0'
 gem 'kaminari'
 gem 'carrierwave'
+gem 'rmagick'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

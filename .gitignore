@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 /public/system
+/public/uploads
 /coverage/
 .idea/
 **.orig
