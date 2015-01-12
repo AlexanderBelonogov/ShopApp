@@ -4,7 +4,7 @@
     %ul.left_menu
       - @categories.each_with_index do |category, index|
         %li{class: index.even? ? 'even' : 'odd'}
-          = link_to category.name, category
+          = link_to category.name, category, remote: true
   .title_box Last Viewed Products
   - if @last_viewed.present?
     - @last_viewed.each do |product|

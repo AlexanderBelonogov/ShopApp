@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
 
   def show_all
-    @products = Product.all
+    @products = Product.page(params[:page])
     respond_to { |format| format.js }
   end
 

@@ -1,0 +1,9 @@
+$('.center_content').html('<div class="center_title_bar"><%= @category.name %></div>');
+<% unless @products.blank? %>
+  <%- @products.each do |product| %>
+     $('.center_title_bar').after('<%= j render 'products/product', product: product %>');
+  <% end %>
+  $('.center_title_bar').after('<%= j paginate @products, :remote => true %>');
+<% else %>
+  $('.center_title_bar').after('<div style="text-align: center;">No products for this category</div>');
+<% end %>

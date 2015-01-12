@@ -1,6 +1,0 @@
-.center_title_bar #{@category.name}
-- unless @products.blank?
-  - @products.each do |product|
-    = render 'products/product', product: product
-- else
-  %div{style: 'text-align: center;'} No products for this category

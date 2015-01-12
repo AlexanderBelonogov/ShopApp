@@ -1,2 +1,3 @@
-$('.center_content').html('<div class="center_title_bar">All Products</div>')
+$('.center_content').html('<div class="center_title_bar">All Products</div>');
 $('.center_title_bar').after('<%= j render @products %>');
+$('.center_title_bar').after('<%= j paginate @products, :remote => true %>');
