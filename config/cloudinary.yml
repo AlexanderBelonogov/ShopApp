@@ -1,0 +1,18 @@
+development:
+  cloud_name: dawolasok
+  api_key: '698889771991572'
+  api_secret: wOJhcMB6a3GWiPtknF7icvBRdec
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dawolasok
+  api_key: '698889771991572'
+  api_secret: wOJhcMB6a3GWiPtknF7icvBRdec
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dawolasok
+  api_key: '698889771991572'
+  api_secret: wOJhcMB6a3GWiPtknF7icvBRdec
+  enhance_image_tag: true
+  static_image_support: false
