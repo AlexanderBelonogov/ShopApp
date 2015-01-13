@@ -9,7 +9,7 @@
         .product_image
           = image_tag('p1.jpg')
         .product_title
-          = link_to item['name'], product_path(item['id'])
+          = link_to item['name'], product_path(item['id']), remote: true
           %br
           %br
           .item_price #{build_currency(item['price'])}
