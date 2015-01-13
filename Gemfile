@@ -22,7 +22,6 @@ gem 'pg'
 
 gem 'rails', '4.2.0'
 gem 'responders', '~> 2.0'
-gem 'rmagick'
 
 gem 'sass-rails', '~> 5.0'
 
