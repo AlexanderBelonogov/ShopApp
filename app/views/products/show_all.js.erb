@@ -1,3 +1,16 @@
-$('.center_content').html('<div class="center_title_bar">All Products</div>');
-$('.center_title_bar').after('<%= j render @products %>');
-$('.center_title_bar').after('<%= j paginate @products, :remote => true %>');
+<% if params[:query].present? %>
+  set_title('Search Result for: <%= params[:query] %>');
+  <% if @products.blank? %>
+     $('.center_title_bar').after('<div style="text-align: center;">No products found</div>');
+  <% else %>
+     $('.center_title_bar').after('<%= j render @products %>');
+     $('.center_title_bar').after('<%= j paginate @products, :remote => true %>');
+  <%end%>
+<% else %>
+  set_title('All Products');
+   $('.center_title_bar').after('<%= j render @products %>');
+   $('.center_title_bar').after('<%= j paginate @products, :remote => true %>');
+<% end %>
+function set_title(title) {
+  $('.center_content').html('<div class="center_title_bar">'+ title +'</div>');
+}

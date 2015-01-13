@@ -112,6 +112,17 @@ color:#000; text-decoration:underline;
 width:180px;
 height:auto;
 text-align:center;
+  form {
+    input.newsletter_input{
+      width:150px;
+      height:16px;
+      border:1px #ddd9d9 solid;
+      margin:10px 0 5px 0;
+      font-size:12px;
+      padding:3px;
+      color:#999999;
+    }
+  }
 }
 .product_title{
 color:#ff8a00;

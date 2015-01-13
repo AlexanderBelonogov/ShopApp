@@ -1,4 +1,9 @@
 .right_content
+  .title_box Search
+  .border_box
+    = form_tag(search_products_path, remote: true, method: "get") do
+      = text_field_tag(:query, nil, class: 'newsletter_input', maxlength: 15, placeholder: 'keysearch', id: 'search')
+      = submit_tag('Search', id: 'submit_tag', disabled: 'disabled')
   .shopping_cart
     .title_box Shopping cart
     .cart_details

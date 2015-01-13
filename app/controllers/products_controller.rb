@@ -44,6 +44,13 @@ class ProductsController < ApplicationController
     cookies.delete(:cart)
   end
 
+  def search
+    unless params[:query].blank?
+      @products = Product.search_by_name(params[:query]).page(params[:page])
+    end
+    render 'show_all', remove: true, format: :js
+  end
+
   def remove_from_cart
     cart = if params[:count].present?
       decrease_items = @cart.select{ |i| i['id'].to_s == params[:id] }

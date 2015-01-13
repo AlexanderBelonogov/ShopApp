@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       get :show_cart
       get :show_all
       post :clear_cart
+      get :search
     end
   end
   resources :categories, only: :show do

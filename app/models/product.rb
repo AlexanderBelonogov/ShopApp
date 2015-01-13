@@ -5,4 +5,6 @@ class Product < ActiveRecord::Base
   validates_presence_of :name, :price
 
   mount_uploader :image, ProductImageUploader
+
+  scope :search_by_name, ->(name) { where('lower(name) like lower(?)', "%#{name}%") }
 end
