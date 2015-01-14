@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  helper_method :fetch_cart_details, :crypt
+  helper_method :fetch_cart_details
 
   def load_categories
     @categories = Category.sorted
@@ -25,10 +25,6 @@ class ApplicationController < ActionController::Base
     else
       [0,0]
     end
-  end
-
-  def crypt
-    @crypt ||= ActiveSupport::MessageEncryptor.new(Rails.configuration.secret_key_base)
   end
 
   def get_cart_products

@@ -3,6 +3,7 @@ class OrderConfirmation < ApplicationMailer
 
   def order_confirmation(order)
     @order = order
+    @crypted_order = crypt.encrypt_and_sign(@order.id)
     @body = JSON.parse(@order.body)
     subject = "Order confirmation ##{@order.id}"
     mail(to: @order.email, subject: subject)

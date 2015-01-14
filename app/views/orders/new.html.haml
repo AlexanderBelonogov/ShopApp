@@ -1,6 +1,7 @@
 .center_title_bar Create Order
 .prod_box_big
   .center_prod_box_big
+    %p Please insert your name and email for confirmation
     = form_for @order, html: {class: 'contact_form'} do |f|
       - if @order.errors.any?
         #error_explanation
