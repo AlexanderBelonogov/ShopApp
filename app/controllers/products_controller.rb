@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
 
   def add_to_cart
     if @product.present?
-      @cart.push({id: @product.id, name: @product.name, price: @product.price})
+      @cart.push({id: @product.id, name: @product.name, img_url: @product.image_url(:thumb), price: @product.price})
       cookies[:cart] = { value: @cart.to_json, expires: 30.days.from_now }
     end
     respond_to { |format| format.js }

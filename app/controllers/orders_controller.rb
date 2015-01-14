@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
       @order.body = @cart.group_by{ |i| i }.map{ |k,v| [k, v.count] }.to_json
       @order.total = fetch_cart_details.last
       @order.save
+      OrderConfirmation.order_confirmation(@order).deliver_now
       cookies.delete(:cart)
       redirect_to root_path
     else

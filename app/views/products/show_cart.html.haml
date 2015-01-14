@@ -7,7 +7,7 @@
         .remove
           = link_to 'X', remove_from_cart_product_path(item['id']), method: :post, remote: true
         .product_image
-          = image_tag('p1.jpg')
+          = image_tag(item['img_url'].nil? ? 'image_not_available_big.gif' : item['img_url'], width: 100, height: 100)
         .product_title
           = link_to item['name'], product_path(item['id']), remote: true
           %br

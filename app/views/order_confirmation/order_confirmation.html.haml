@@ -1,0 +1,17 @@
+%table{:style => "background: #{image_url('bg.jpg')} repeat-x #e4e9ec top; font-size: 12px; width: 100%;"}
+  %tr
+    %td{:style => "padding: 30px 30px 10px;"}
+      %table{:style => "background: #FFFFFF; width: 100%;"}
+        %tr
+          %td
+            = image_tag('logo.png', style: 'border: 0 none;')
+        %tr
+          %td{:style => "color: #777777; padding: 20px 20px; font-size: 1.1em;"}
+            %p Hello, #{@order.name}
+            %br
+            %p You created order in our shop:
+            %p Total: #{number_to_currency(@order.total, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
+            
+  %tr
+    %td{:style => "color: #FFFFFF; text-align: center"}
+      %p{:style => "margin: 14px 14px; line-height: 20px;"} This is an automated email sent from ToolsShop.
