@@ -9,6 +9,7 @@ gem 'cloudinary'
 gem 'coffee-rails', '~> 4.1.0'
 
 gem 'delayed_job_active_record'
+gem 'daemons'
 
 gem 'haml-rails'
 
