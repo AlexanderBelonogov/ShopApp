@@ -10,6 +10,10 @@ $('.all_total_text').text(amount + ',00 $');
 if (count != 0) {
   $('.clear_cart').show();
 }
+if (amount == 0) {
+  $('.prod_box_big').html('<div class="center_prod_box_big">Your cart is empty.</div>');
+  $('.clear_cart').hide();
+}
 <% if params[:action] == "remove_from_cart" && !params[:count].present? %>
   $('.product_id_'+ <%= params[:id] %>).remove();
 <% end %>
@@ -25,10 +29,6 @@ if (count != 0) {
   <% end %>
   if (current_count == 0) {
     product_block.remove();
-    if (amount == 0) {
-      $('.prod_box_big').html('<div class="center_prod_box_big">Your cart is empty.</div>');
-      $('.clear_cart').hide();
-    }
   } else {
     amount_block.text(current_count);
     product_block.find('span.price').text(current_count * product_price + ',00 $');
