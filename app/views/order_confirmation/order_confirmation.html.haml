@@ -11,7 +11,21 @@
             %br
             %p You created order in our shop:
             %p Total: #{number_to_currency(@order.total, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
-            
+            - @body.each do |item, amount|
+              .center_prod_box_big
+                .product_image
+                  = image_tag(item['img_url'].nil? ? 'image_not_available_big.gif' : item['img_url'], width: 100, height: 100)
+                .product_title
+                  #{item['name']}
+                  %br
+                  %br
+                  .item_price #{item['price']}
+                .total
+                  .amount #{amount}
+                  %br
+                  Total:
+                  %br
+                  %span.price #{number_to_currency(item['price'] * amount, unit: "$", separator: ",", delimiter: "", format: "%n %u")}
   %tr
     %td{:style => "color: #FFFFFF; text-align: center"}
       %p{:style => "margin: 14px 14px; line-height: 20px;"} This is an automated email sent from ToolsShop.
